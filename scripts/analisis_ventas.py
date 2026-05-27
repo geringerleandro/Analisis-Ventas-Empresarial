@@ -85,3 +85,35 @@ print(f"Ventas totales del año: ${total:.2f}")
 print(f"Promedio diario de ventas: ${promedio:.2f}")
 print(f"Dia con mayor venta: {maximo['fecha']} con ${maximo['monto']:.2f}")
 print(f"Mes con mayor volumen de ventas: {mes_mayor} con ${monto_mes_mayor:.2f}")
+
+# BLOQUE 3: GENERACION DEL GRAFICO
+
+# Importamos matplotlib, la librería estándar de Python para generar gráficos
+import matplotlib.pyplot as plt
+
+# Extraemos las fechas y montos de la lista de diccionarios para usarlos en el gráfico
+fechas = []
+montos = []
+for venta in ventas:
+    fechas.append(venta["fecha"])
+    montos.append(venta["monto"])
+
+# Creamos la figura y definimos su tamaño en pulgadas
+plt.figure(figsize=(14, 5))
+
+# Graficamos las fechas en el eje X y los montos en el eje Y
+plt.plot(fechas, montos)
+
+# Reducimos las etiquetas del eje X para que no se superpongan entre sí
+plt.xticks(fechas[::30], rotation=45)
+
+# Agregamos títulos y etiquetas a los ejes
+plt.title("Evolución de ventas diarias - 2024")
+plt.xlabel("Fecha")
+plt.ylabel("Monto ($)")
+
+plt.tight_layout()
+
+# Guardamos el gráfico en la carpeta /resultados del repositorio
+plt.savefig("/content/Analisis-Ventas-Empresarial/resultados/grafico_ventas.png")
+print("Gráfico guardado correctamente en /resultados")
