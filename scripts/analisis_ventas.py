@@ -105,7 +105,7 @@ plt.figure(figsize=(14, 5))
 plt.plot(fechas, montos)
 
 # Reducimos las etiquetas del eje X para que no se superpongan entre sí
-plt.xticks(fechas[::30], rotation=45)
+plt.xticks(fechas[::30], rotation=45) # (Luis)Mostramos una etiqueta cada 30 dias para evitar superposicion en el eje X
 
 # Agregamos títulos y etiquetas a los ejes
 plt.title("Evolución de ventas diarias - 2024")
